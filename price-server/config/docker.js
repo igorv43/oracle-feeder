@@ -21,6 +21,9 @@ module.exports = {
     binance: process.env.CRYPTO_PROVIDER_BINANCE_SYMBOLS && {
       symbols: process.env.CRYPTO_PROVIDER_BINANCE_SYMBOLS.split(',') || [],
     },
+    terraClassic: process.env.CRYPTO_PROVIDER_TERRACLASSIC_SYMBOLS && {
+      symbols: process.env.CRYPTO_PROVIDER_TERRACLASSIC_SYMBOLS.split(',') || [],
+    },
     huobi: process.env.CRYPTO_PROVIDER_HUOBI_SYMBOLS && {
       symbols: process.env.CRYPTO_PROVIDER_HUOBI_SYMBOLS.split(',') || [],
     },

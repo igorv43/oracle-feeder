@@ -48,7 +48,6 @@ const COIN_GECKO_IDS = {
   'BNB/USD': 'binancecoin',
   'USDT/USD': 'tether',
   'USDC/USD': 'usd-coin',
-  'BUSD/USD': 'binance-usd',
   'DAI/USD': 'dai',
   'XRP/USD': 'ripple',
   'DOGE/USD': 'dogecoin',

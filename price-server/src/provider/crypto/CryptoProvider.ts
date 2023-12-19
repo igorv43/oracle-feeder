@@ -1,6 +1,6 @@
 import * as config from 'config'
 import { Provider, ProviderOptions } from 'provider/base'
-import { Upbit, Bithumb, Binance, Huobi, Bitfinex, Kraken, Kucoin, CoinGecko } from './quoter'
+import { Upbit, Bithumb, Binance, Huobi, Bitfinex, Kraken, Kucoin, CoinGecko,TerraClassic } from './quoter'
 
 class CryptoProvider extends Provider {
   constructor(options: ProviderOptions) {
@@ -17,6 +17,7 @@ class CryptoProvider extends Provider {
       name === 'upbit' && this.quoters.push(new Upbit(option))
       name === 'bithumb' && this.quoters.push(new Bithumb(option))
       name === 'binance' && this.quoters.push(new Binance(option))
+      name === 'terraClassic' && this.quoters.push(new TerraClassic(option))
       name === 'huobi' && this.quoters.push(new Huobi(option))
       name === 'bitfinex' && this.quoters.push(new Bitfinex(option))
       name === 'kraken' && this.quoters.push(new Kraken(option))

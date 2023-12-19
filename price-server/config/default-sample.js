@@ -243,6 +243,15 @@ module.exports = {
         'OSMO/USDT',
       ],
     },
+    terraClassic: {
+      interval: 6 * 1000,
+      symbols: [
+        'LUNC/USDT',
+        'ARBT/USDT',
+        'USTC/USDT',
+        
+      ],
+    },
     kraken: {
       interval: 6 * 1000,
       symbols: [

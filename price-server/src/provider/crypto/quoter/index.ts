@@ -1,4 +1,5 @@
 export * from './Binance'
+export * from './TerraClassic'
 export * from './Bithumb'
 export * from './Coinone'
 export * from './Huobi'
