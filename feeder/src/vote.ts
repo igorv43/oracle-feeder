@@ -118,6 +118,9 @@ function preparePrices(prices: Price[], oracleWhitelist: string[]): Price[] {
 
   const newPrices = prices
     .map((price) => {
+      if (price.denom === "ARBT") {
+        console.log(price.denom,price.price)
+     }
       if (oracleWhitelist.indexOf(`u${price.denom.toLowerCase()}`) === -1) {
         return
       }
@@ -129,9 +132,10 @@ function preparePrices(prices: Price[], oracleWhitelist: string[]): Price[] {
     })
     .filter(Boolean) as Price[]
 
+  //console.log(newPrices)
   oracleWhitelist.forEach((denom) => {
     const found = prices.filter((price) => denom === `u${price.denom.toLowerCase()}`).length > 0
-
+   console.log(prices.filter((price) => denom === `u${price.denom.toLowerCase()}`))
     if (!found) {
       if (denom === 'uusd') {
         newPrices.push({
@@ -189,6 +193,7 @@ export async function processVote(
 
   // Print timestamp before start
   logger.info(`[VOTE] Requesting prices from price server ${args.dataSourceUrl.join(',')}`)
+  console.log(args.dataSourceUrl)
   const _prices = await getPrices(args.dataSourceUrl)
 
   // Removes non-whitelisted currencies and abstain for not fetched currencies

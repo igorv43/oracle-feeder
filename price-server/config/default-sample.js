@@ -37,6 +37,7 @@ module.exports = {
   cryptoProvider: {
     adjustTvwap: { symbols: [] },
     fallbackPriority: [
+      'terraClassic',
       'binance',
       // 'osmosis', // DO NOT USE THIS. BROKEN PROVIDER
       // 'kraken',
@@ -246,9 +247,9 @@ module.exports = {
     terraClassic: {
       interval: 6 * 1000,
       symbols: [
-        'LUNC/USDT',
+        // 'LUNC/USDT',
         'ARBT/USDT',
-        'USTC/USDT',
+        // 'USTC/USDT',
         
       ],
     },

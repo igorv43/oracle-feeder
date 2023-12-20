@@ -54,10 +54,12 @@ export class Quoter {
   }
 
   public getSymbols(): string[] {
+   
     return this.symbols
   }
 
   public getPrice(symbol: string): BigNumber | undefined {
+   
     return this.isAlive ? this.priceBySymbol[symbol] : undefined
   }
 
