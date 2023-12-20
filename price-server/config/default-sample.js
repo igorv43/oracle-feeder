@@ -248,7 +248,7 @@ module.exports = {
       interval: 6 * 1000,
       symbols: [
         // 'LUNC/USDT',
-        'ARBT/USDT',
+        'ARB/USDT',
         // 'USTC/USDT',
         
       ],

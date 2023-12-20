@@ -118,9 +118,7 @@ function preparePrices(prices: Price[], oracleWhitelist: string[]): Price[] {
 
   const newPrices = prices
     .map((price) => {
-      if (price.denom === "ARBT") {
-        console.log(price.denom,price.price)
-     }
+    
       if (oracleWhitelist.indexOf(`u${price.denom.toLowerCase()}`) === -1) {
         return
       }
@@ -135,7 +133,7 @@ function preparePrices(prices: Price[], oracleWhitelist: string[]): Price[] {
   //console.log(newPrices)
   oracleWhitelist.forEach((denom) => {
     const found = prices.filter((price) => denom === `u${price.denom.toLowerCase()}`).length > 0
-   console.log(prices.filter((price) => denom === `u${price.denom.toLowerCase()}`))
+  
     if (!found) {
       if (denom === 'uusd') {
         newPrices.push({
@@ -178,7 +176,8 @@ export async function processVote(
   logger.info(`[VOTE] Requesting on chain data`)
   const { oracleVotePeriod, oracleWhitelist, currentVotePeriod, indexInVotePeriod, nextBlockHeight } =
     await loadOracleParams(client, oracle)
-
+  //console.log(oracleVotePeriod, oracleWhitelist, currentVotePeriod, indexInVotePeriod, nextBlockHeight)
+ // console.log(previousVotePeriod,currentVotePeriod,oracleVotePeriod - indexInVotePeriod)
   // Skip until new voting period
   // Skip when index [0, oracleVotePeriod - 1] is bigger than oracleVotePeriod - 2 or index is 0
   if ((previousVotePeriod && currentVotePeriod === previousVotePeriod) || oracleVotePeriod - indexInVotePeriod < 2) {
@@ -193,7 +192,7 @@ export async function processVote(
 
   // Print timestamp before start
   logger.info(`[VOTE] Requesting prices from price server ${args.dataSourceUrl.join(',')}`)
-  console.log(args.dataSourceUrl)
+  
   const _prices = await getPrices(args.dataSourceUrl)
 
   // Removes non-whitelisted currencies and abstain for not fetched currencies
